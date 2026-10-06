@@ -2,13 +2,31 @@
 
 Northstar is a full-stack fintech risk-operations application for investigating suspected mule-account networks. It screens transactions with explainable rules, connects accounts, devices and beneficiaries in a graph, gives analysts a priority queue, and stores every case decision in an audit trail.
 
-![Northstar mule account investigation dashboard](assets/northstar-mule-network.png)
+<p align="center">
+  <img src="assets/northstar-demo.gif" alt="Northstar live investigation workflow" width="960">
+</p>
+
+<p align="center"><em>Live dashboard, graph tracing, priority queue and explainable case review.</em></p>
 
 ## Why this project exists
 
 Traditional transaction queues show alerts one row at a time. Mule activity is often distributed across several accounts, shared devices, rapid pass-through transfers and a common beneficiary. Northstar brings those clues into one investigation so an analyst can review the network and the evidence behind its risk score.
 
 This repository contains a working application stack. All included customers and transactions are synthetic, but authentication, API calls, persistence, rule execution, graph storage, caching, event publication and audit recording are implemented as real application behavior.
+
+## Product tour
+
+### Live risk-operations dashboard
+
+![Northstar live risk-operations dashboard](assets/northstar-dashboard-live.png)
+
+The dashboard combines live service health, operational metrics, a Neo4j-backed mule network, the risk-prioritized transaction queue and recent audit activity. The captured data is synthetic.
+
+### Explainable analyst decision
+
+![Northstar explainable case-review workflow](assets/northstar-case-review.png)
+
+Analysts see the score, strongest signal, payment route and channel before recording a safe or block-and-escalate decision with a required note.
 
 ## Technology stack
 
