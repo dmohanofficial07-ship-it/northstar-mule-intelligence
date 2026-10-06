@@ -31,7 +31,7 @@ GRAPH_EDGES = [
 
 def seed_database(db: Session) -> None:
     if not db.scalar(select(User.id).limit(1)):
-        db.add(User(email="analyst@northstar.local", password_hash=hash_password("DemoPass123!"), full_name="Arjun Mehta", role="risk_analyst"))
+        db.add(User(email="analyst@northstarfintech.com", password_hash=hash_password("DemoPass123!"), full_name="Arjun Mehta", role="risk_analyst"))
 
     if not db.scalar(select(Transaction.id).limit(1)):
         now = datetime.now(timezone.utc)

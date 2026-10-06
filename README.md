@@ -43,7 +43,7 @@ Open these URLs after the containers become healthy:
 Use the seeded analyst account:
 
 ```text
-Email: analyst@northstar.local
+Email: analyst@northstarfintech.com
 Password: DemoPass123!
 ```
 

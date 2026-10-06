@@ -82,6 +82,7 @@ def screen_transaction(
         occurred_at=datetime.now(timezone.utc),
     )
     db.add(transaction)
+    db.flush()
     case_ref = None
     if score >= 75:
         case_ref = f"AUTO-{payload.transaction_ref[-12:]}"
