@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Northstar, an explainable mule-account investigation workspace for fintech risk teams.">
+  <title>Northstar — Mule Account Intelligence</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#overview"><span>N</span><div><strong>Northstar</strong><small>Mule intelligence</small></div></a>
+    <nav aria-label="Primary navigation">
+      <a class="active" href="#overview">⌁ <span>Overview</span></a>
+      <a href="#network">⌘ <span>Mule network</span><b>6</b></a>
+      <a href="#queue">□ <span>Review queue</span><b>12</b></a>
+      <a href="#insights">⌇ <span>Risk insights</span></a>
+      <a href="#performance">◇ <span>Model health</span></a>
+      <a href="#audit">≡ <span>Audit trail</span></a>
+    </nav>
+    <div class="side-bottom"><p><i></i><span><strong>Systems operational</strong><small>Checked just now</small></span></p><button><em>AM</em><span><strong>Arjun Mehta</strong><small>Risk analyst</small></span>•••</button></div>
+  </aside>
+
+  <div class="app">
+    <header class="topbar">
+      <button class="menu" aria-label="Toggle navigation">☰</button>
+      <div><small>Workspace / Risk operations</small><h1>Good morning, Arjun.</h1></div>
+      <div class="top-actions"><button>◷ &nbsp; Last 24 hours &nbsp;⌄</button><button aria-label="Notifications">♢<i></i></button></div>
+    </header>
+
+    <main>
+      <section id="overview" class="page-head"><div><h2>Mule account intelligence</h2><p>Trace suspicious fund movement across accounts, devices, and beneficiaries.</p></div><span class="live"><i></i> Live data · Updated now</span></section>
+
+      <section class="metrics" aria-label="Risk metrics">
+        <article><header><i class="purple">↗</i><span>↑ 8.4%</span></header><p>Accounts analyzed</p><strong data-count="24892">0</strong><small>Across 3 payment channels</small></article>
+        <article><header><i class="amber">!</i><span class="neutral">↑ 11</span></header><p>Suspected mule accounts</p><strong data-count="143">0</strong><small>6 connected clusters</small></article>
+        <article><header><i class="red">⊘</i><span>↑ 1.2%</span></header><p>Suspicious funds traced</p><strong>₹12.8L</strong><small>Across 38 linked payments</small></article>
+        <article><header><i class="green">✓</i><span class="neutral">↓ 14 min</span></header><p>Average investigation time</p><strong>4m 32s</strong><small>Target: under 6 minutes</small></article>
+      </section>
+
+      <section id="network" class="panel network-panel">
+        <header class="network-head"><div><span class="case-kicker">CASE MULE-2048</span><h3>Connected entity investigation</h3><p>Six accounts received funds and converged on one beneficiary within 18 minutes.</p></div><div class="network-actions"><span class="risk-badge">Critical · 94</span><button id="trace-funds" class="primary">Trace fund flow</button></div></header>
+        <div class="network-layout">
+          <div class="network-workspace">
+            <div class="network-toolbar"><div class="network-legend"><span><i class="account-key"></i>Account</span><span><i class="device-key"></i>Device</span><span><i class="beneficiary-key"></i>Beneficiary</span></div><span>₹8.6L linked value</span></div>
+            <div class="network-canvas" aria-label="Interactive network of linked accounts, devices, and a beneficiary">
+              <svg viewBox="0 0 760 360" aria-hidden="true"><path class="edge incoming" d="M110 88 C220 88 238 160 350 178"/><path class="edge incoming" d="M110 270 C220 270 238 200 350 182"/><path class="edge incoming" d="M245 55 C290 92 306 126 350 174"/><path class="edge link" d="M372 180 C450 115 510 84 590 90"/><path class="edge link" d="M372 180 C470 180 510 180 615 180"/><path class="edge link" d="M372 180 C450 245 510 275 590 270"/><path class="edge shared" d="M245 55 C375 22 510 30 590 90"/></svg>
+              <button class="entity-node account node-a" data-type="Account" data-name="Rohan Khanna" data-id="CUS-18429" data-score="94" data-summary="Origin account. Twelve outward transfers followed three recent cash deposits." data-signal="Velocity spike" data-value="₹2.48L"><span>RK</span><b>Rohan K.</b><small>Origin</small></button>
+              <button class="entity-node account node-b" data-type="Account" data-name="Kavya Rao" data-id="CUS-73108" data-score="81" data-summary="Newly active account that forwarded 96 percent of received funds." data-signal="Rapid pass-through" data-value="₹1.76L"><span>KR</span><b>Kavya R.</b><small>Layer 1</small></button>
+              <button class="entity-node device node-c" data-type="Device" data-name="Android device" data-id="DEV-9A71" data-score="88" data-summary="Shared device used by three customer profiles in the same hour." data-signal="Shared device" data-value="3 accounts"><span>⌕</span><b>DEV-9A71</b><small>Shared device</small></button>
+              <button class="entity-node account primary-node node-d active" data-type="Account" data-name="Aarav Trading" data-id="ACC-33018" data-score="94" data-summary="Central collection account. Funds from six unrelated customers converged here." data-signal="Many-to-one flow" data-value="₹8.6L"><span>AT</span><b>Aarav Trading</b><small>Aggregator</small></button>
+              <button class="entity-node account node-e" data-type="Account" data-name="Nova Services" data-id="ACC-88410" data-score="79" data-summary="Recently opened business account with no matching invoice history." data-signal="Profile mismatch" data-value="₹1.12L"><span>NS</span><b>Nova Services</b><small>Layer 2</small></button>
+              <button class="entity-node beneficiary node-f" data-type="Beneficiary" data-name="Orion Exports" data-id="BEN-00391" data-score="91" data-summary="Final beneficiary linked to two previously closed fraud cases." data-signal="Known association" data-value="₹5.94L"><span>OE</span><b>Orion Exports</b><small>Exit point</small></button>
+              <button class="entity-node account node-g" data-type="Account" data-name="Imran Sheikh" data-id="CUS-55193" data-score="76" data-summary="Dormant account became active and moved funds within four minutes." data-signal="Dormancy break" data-value="₹94K"><span>IS</span><b>Imran S.</b><small>Layer 1</small></button>
+            </div>
+          </div>
+          <aside id="entity-detail" class="entity-detail" aria-live="polite"><div class="detail-top"><span id="detail-type">Account</span><mark id="detail-score">94 risk</mark></div><h4 id="detail-name">Aarav Trading</h4><p id="detail-id">ACC-33018</p><p id="detail-summary" class="detail-summary">Central collection account. Funds from six unrelated customers converged here.</p><dl><div><dt>Strongest signal</dt><dd id="detail-signal">Many-to-one flow</dd></div><div><dt>Linked value</dt><dd id="detail-value">₹8.6L</dd></div><div><dt>Confidence</dt><dd>High</dd></div></dl><div class="explainability"><b>Why it matters</b><p>Northstar shows the evidence behind the score so an analyst can verify the pattern before taking action.</p></div><button class="review-network">Open investigation →</button></aside>
+        </div>
+        <footer class="network-foot"><span><i></i> Select an entity to inspect its evidence</span><span id="trace-status">Fund path ready to trace</span></footer>
+      </section>
+
+      <section id="insights" class="insights">
+        <article class="panel chart-panel">
+          <header class="panel-head"><div><h3>Transaction volume</h3><p>Approved and flagged transactions by hour</p></div><div class="legend"><span><i></i>Approved</span><span><i></i>Flagged</span></div></header>
+          <div class="chart-total"><strong>24,892</strong><span>+8.4% vs previous period</span></div>
+          <div class="chart"><div class="y"><span>6k</span><span>4k</span><span>2k</span><span>0</span></div><svg viewBox="0 0 720 220" role="img" aria-label="Transaction volume trending upward"><defs><linearGradient id="fill" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#6c5ce7" stop-opacity=".25"/><stop offset="1" stop-color="#6c5ce7" stop-opacity="0"/></linearGradient></defs><g class="grid"><path d="M0 20H720M0 80H720M0 140H720M0 200H720"/></g><path class="area" d="M0 168C60 150 85 165 135 138S215 123 270 132S340 90 390 103S470 67 520 83S595 34 640 55S690 38 720 22V200H0Z"/><path class="approved" d="M0 168C60 150 85 165 135 138S215 123 270 132S340 90 390 103S470 67 520 83S595 34 640 55S690 38 720 22"/><path class="flagged" d="M0 190C70 186 100 194 155 184S240 190 295 178S385 187 445 173S520 181 575 168S670 178 720 162"/></svg><div class="x"><span>12 AM</span><span>4 AM</span><span>8 AM</span><span>12 PM</span><span>4 PM</span><span>8 PM</span><span>Now</span></div></div>
+        </article>
+        <article class="panel distribution"><header class="panel-head"><div><h3>Risk distribution</h3><p>Screened transactions by score</p></div><button>•••</button></header><div class="donut"><div><strong>24.9k</strong><span>Total</span></div></div><ul><li><span><i></i>Low risk</span><b>22,104 <small>88.8%</small></b></li><li><span><i></i>Medium risk</span><b>2,645 <small>10.6%</small></b></li><li><span><i></i>High risk</span><b>143 <small>0.6%</small></b></li></ul></article>
+      </section>
+
+      <section id="queue" class="panel queue">
+        <header class="queue-head"><div><h3>Priority review queue</h3><p>Transactions requiring analyst attention</p></div><div class="tools"><label>⌕<input id="search" type="search" placeholder="Search transaction or customer"></label><button id="filter">≡ Filter</button><button class="primary">View all cases →</button></div></header>
+        <div id="chips" class="chips" hidden><button class="active" data-risk="all">All risks</button><button data-risk="critical">Critical</button><button data-risk="high">High</button><button data-risk="medium">Medium</button></div>
+        <div class="table-wrap"><table><thead><tr><th>Transaction</th><th>Customer</th><th>Amount</th><th>Risk score</th><th>Primary signal</th><th>Channel</th><th>Time</th><th></th></tr></thead><tbody>
+          <tr data-risk="critical"><td><b>TXN-829104</b><small>Mumbai, IN → Lagos, NG</small></td><td><span class="person"><i>RK</i><span><b>Rohan Khanna</b><small>CUS-18429</small></span></span></td><td><b>₹2,48,000</b><small>International transfer</small></td><td><mark class="critical">94</mark><b>Critical</b></td><td><b>◈ Velocity spike</b><small>12 transfers / 8 min</small></td><td>NetBanking</td><td><b>2 min ago</b><small>10:42:18 AM</small></td><td><button class="review">Review →</button></td></tr>
+          <tr data-risk="high"><td><b>TXN-829087</b><small>Bengaluru, IN</small></td><td><span class="person"><i>SP</i><span><b>Sneha Patel</b><small>CUS-29104</small></span></span></td><td><b>₹84,500</b><small>Card payment</small></td><td><mark class="high">82</mark><b>High</b></td><td><b>⌾ New device</b><small>First seen 4 min ago</small></td><td>Card</td><td><b>8 min ago</b><small>10:36:04 AM</small></td><td><button class="review">Review →</button></td></tr>
+          <tr data-risk="high"><td><b>TXN-829061</b><small>Delhi, IN → Dubai, AE</small></td><td><span class="person"><i>AV</i><span><b>Arun Verma</b><small>CUS-84012</small></span></span></td><td><b>₹1,12,000</b><small>UPI transfer</small></td><td><mark class="high">78</mark><b>High</b></td><td><b>◎ Location anomaly</b><small>1,900 km in 22 min</small></td><td>UPI</td><td><b>14 min ago</b><small>10:30:51 AM</small></td><td><button class="review">Review →</button></td></tr>
+          <tr data-risk="medium"><td><b>TXN-829044</b><small>Chennai, IN</small></td><td><span class="person"><i>NF</i><span><b>Nisha Fernandes</b><small>CUS-61982</small></span></span></td><td><b>₹36,200</b><small>Card payment</small></td><td><mark class="medium">64</mark><b>Medium</b></td><td><b>◇ Merchant risk</b><small>Elevated category risk</small></td><td>Card</td><td><b>21 min ago</b><small>10:23:11 AM</small></td><td><button class="review">Review →</button></td></tr>
+        </tbody></table><p id="empty" class="empty" hidden>No matching transactions.</p></div><footer><span>Showing 4 of 12 priority cases</span><span><i></i> Data refreshed automatically</span></footer>
+      </section>
+
+      <section class="bottom">
+        <article id="performance" class="panel compact"><header class="panel-head"><div><h3>Detection performance</h3><p>Today’s model health</p></div><span class="healthy">Healthy</span></header><div class="quality"><p><b>97.2%</b><small>Precision</small></p><p><b>93.8%</b><small>Recall</small></p><p><b>1.8%</b><small>False positives</small></p></div></article>
+        <article id="audit" class="panel compact"><header class="panel-head"><div><h3>Recent decisions</h3><p>Analyst activity</p></div><a href="#queue">View audit log →</a></header><div class="decision"><i>✓</i><span><b>TXN-828991 cleared</b><small>Meera S. · 3 min ago · Note added</small></span></div><div class="decision blocked"><i>⊘</i><span><b>TXN-828946 blocked</b><small>Vikram R. · 11 min ago · Escalated to AML</small></span></div></article>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="case"><button class="close" aria-label="Close">×</button><p class="eyebrow">Case review</p><div id="case-content"></div><aside><b>Why this was flagged</b><p>The decision engine combined behavioral, device, location, and transaction signals. The score is explainable and every analyst action is recorded.</p></aside><form method="dialog"><button value="safe">Mark as safe</button><button class="danger" value="blocked">Block & escalate</button></form></dialog>
+  <div id="toast" class="toast" role="status"></div>
+</body>
+</html>
