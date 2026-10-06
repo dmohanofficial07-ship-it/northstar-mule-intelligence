@@ -1,0 +1,12 @@
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+SQLAlchemy==2.0.36
+psycopg[binary]==3.2.3
+alembic==1.14.0
+pydantic-settings==2.7.1
+pydantic[email]==2.10.4
+PyJWT==2.10.1
+pwdlib[argon2]==0.2.1
+redis==5.2.1
+neo4j==5.27.0
+kafka-python-ng==2.2.3

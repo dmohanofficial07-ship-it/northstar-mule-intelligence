@@ -3,3 +3,11 @@
 Thumbs.db
 .DS_Store
 /Northstar Project Guide.docx
+.env
+.venv/
+__pycache__/
+*.py[cod]
+*.db
+.pytest_cache/
+.ruff_cache/
+.coverage

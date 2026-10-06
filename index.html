@@ -19,7 +19,7 @@
       <a href="#performance">◇ <span>Model health</span></a>
       <a href="#audit">≡ <span>Audit trail</span></a>
     </nav>
-    <div class="side-bottom"><p><i></i><span><strong>Systems operational</strong><small>Checked just now</small></span></p><button><em>AM</em><span><strong>Arjun Mehta</strong><small>Risk analyst</small></span>•••</button></div>
+    <div class="side-bottom"><p><i></i><span><strong id="system-status">Connecting services</strong><small id="system-detail">Checking API health</small></span></p><button id="analyst-menu" title="Sign out"><em>AM</em><span><strong id="analyst-name">Arjun Mehta</strong><small>Risk analyst · click to sign out</small></span>•••</button></div>
   </aside>
 
   <div class="app">
@@ -33,10 +33,10 @@
       <section id="overview" class="page-head"><div><h2>Mule account intelligence</h2><p>Trace suspicious fund movement across accounts, devices, and beneficiaries.</p></div><span class="live"><i></i> Live data · Updated now</span></section>
 
       <section class="metrics" aria-label="Risk metrics">
-        <article><header><i class="purple">↗</i><span>↑ 8.4%</span></header><p>Accounts analyzed</p><strong data-count="24892">0</strong><small>Across 3 payment channels</small></article>
-        <article><header><i class="amber">!</i><span class="neutral">↑ 11</span></header><p>Suspected mule accounts</p><strong data-count="143">0</strong><small>6 connected clusters</small></article>
-        <article><header><i class="red">⊘</i><span>↑ 1.2%</span></header><p>Suspicious funds traced</p><strong>₹12.8L</strong><small>Across 38 linked payments</small></article>
-        <article><header><i class="green">✓</i><span class="neutral">↓ 14 min</span></header><p>Average investigation time</p><strong>4m 32s</strong><small>Target: under 6 minutes</small></article>
+        <article><header><i class="purple">↗</i><span>↑ 8.4%</span></header><p>Accounts analyzed</p><strong id="accounts-analyzed">—</strong><small>Across 3 payment channels</small></article>
+        <article><header><i class="amber">!</i><span class="neutral">Live</span></header><p>Suspected mule accounts</p><strong id="suspected-mules">—</strong><small>Connected clusters under review</small></article>
+        <article><header><i class="red">⊘</i><span>Traced</span></header><p>Suspicious funds traced</p><strong id="suspicious-funds">—</strong><small>Across linked payments</small></article>
+        <article><header><i class="green">✓</i><span class="neutral">Target &lt; 6m</span></header><p>Average investigation time</p><strong id="investigation-time">—</strong><small>Measured from live cases</small></article>
       </section>
 
       <section id="network" class="panel network-panel">
@@ -72,22 +72,23 @@
       <section id="queue" class="panel queue">
         <header class="queue-head"><div><h3>Priority review queue</h3><p>Transactions requiring analyst attention</p></div><div class="tools"><label>⌕<input id="search" type="search" placeholder="Search transaction or customer"></label><button id="filter">≡ Filter</button><button class="primary">View all cases →</button></div></header>
         <div id="chips" class="chips" hidden><button class="active" data-risk="all">All risks</button><button data-risk="critical">Critical</button><button data-risk="high">High</button><button data-risk="medium">Medium</button></div>
-        <div class="table-wrap"><table><thead><tr><th>Transaction</th><th>Customer</th><th>Amount</th><th>Risk score</th><th>Primary signal</th><th>Channel</th><th>Time</th><th></th></tr></thead><tbody>
+        <div class="table-wrap"><table><thead><tr><th>Transaction</th><th>Customer</th><th>Amount</th><th>Risk score</th><th>Primary signal</th><th>Channel</th><th>Time</th><th></th></tr></thead><tbody id="transaction-body">
           <tr data-risk="critical"><td><b>TXN-829104</b><small>Mumbai, IN → Lagos, NG</small></td><td><span class="person"><i>RK</i><span><b>Rohan Khanna</b><small>CUS-18429</small></span></span></td><td><b>₹2,48,000</b><small>International transfer</small></td><td><mark class="critical">94</mark><b>Critical</b></td><td><b>◈ Velocity spike</b><small>12 transfers / 8 min</small></td><td>NetBanking</td><td><b>2 min ago</b><small>10:42:18 AM</small></td><td><button class="review">Review →</button></td></tr>
           <tr data-risk="high"><td><b>TXN-829087</b><small>Bengaluru, IN</small></td><td><span class="person"><i>SP</i><span><b>Sneha Patel</b><small>CUS-29104</small></span></span></td><td><b>₹84,500</b><small>Card payment</small></td><td><mark class="high">82</mark><b>High</b></td><td><b>⌾ New device</b><small>First seen 4 min ago</small></td><td>Card</td><td><b>8 min ago</b><small>10:36:04 AM</small></td><td><button class="review">Review →</button></td></tr>
           <tr data-risk="high"><td><b>TXN-829061</b><small>Delhi, IN → Dubai, AE</small></td><td><span class="person"><i>AV</i><span><b>Arun Verma</b><small>CUS-84012</small></span></span></td><td><b>₹1,12,000</b><small>UPI transfer</small></td><td><mark class="high">78</mark><b>High</b></td><td><b>◎ Location anomaly</b><small>1,900 km in 22 min</small></td><td>UPI</td><td><b>14 min ago</b><small>10:30:51 AM</small></td><td><button class="review">Review →</button></td></tr>
           <tr data-risk="medium"><td><b>TXN-829044</b><small>Chennai, IN</small></td><td><span class="person"><i>NF</i><span><b>Nisha Fernandes</b><small>CUS-61982</small></span></span></td><td><b>₹36,200</b><small>Card payment</small></td><td><mark class="medium">64</mark><b>Medium</b></td><td><b>◇ Merchant risk</b><small>Elevated category risk</small></td><td>Card</td><td><b>21 min ago</b><small>10:23:11 AM</small></td><td><button class="review">Review →</button></td></tr>
-        </tbody></table><p id="empty" class="empty" hidden>No matching transactions.</p></div><footer><span>Showing 4 of 12 priority cases</span><span><i></i> Data refreshed automatically</span></footer>
+        </tbody></table><p id="empty" class="empty" hidden>No matching transactions.</p></div><footer><span id="queue-count">Loading priority cases…</span><span><i></i> Data loaded from FastAPI</span></footer>
       </section>
 
       <section class="bottom">
         <article id="performance" class="panel compact"><header class="panel-head"><div><h3>Detection performance</h3><p>Today’s model health</p></div><span class="healthy">Healthy</span></header><div class="quality"><p><b>97.2%</b><small>Precision</small></p><p><b>93.8%</b><small>Recall</small></p><p><b>1.8%</b><small>False positives</small></p></div></article>
-        <article id="audit" class="panel compact"><header class="panel-head"><div><h3>Recent decisions</h3><p>Analyst activity</p></div><a href="#queue">View audit log →</a></header><div class="decision"><i>✓</i><span><b>TXN-828991 cleared</b><small>Meera S. · 3 min ago · Note added</small></span></div><div class="decision blocked"><i>⊘</i><span><b>TXN-828946 blocked</b><small>Vikram R. · 11 min ago · Escalated to AML</small></span></div></article>
+        <article id="audit" class="panel compact"><header class="panel-head"><div><h3>Recent decisions</h3><p>Analyst activity</p></div><a href="/docs" target="_blank">API docs →</a></header><div id="audit-events"><div class="decision"><i>…</i><span><b>Loading audit events</b><small>Stored in PostgreSQL</small></span></div></div></article>
       </section>
     </main>
   </div>
 
-  <dialog id="case"><button class="close" aria-label="Close">×</button><p class="eyebrow">Case review</p><div id="case-content"></div><aside><b>Why this was flagged</b><p>The decision engine combined behavioral, device, location, and transaction signals. The score is explainable and every analyst action is recorded.</p></aside><form method="dialog"><button value="safe">Mark as safe</button><button class="danger" value="blocked">Block & escalate</button></form></dialog>
+  <dialog id="login" class="login-dialog"><div class="login-brand">N</div><p class="eyebrow">Secure analyst workspace</p><h2>Sign in to Northstar</h2><p>Use the seeded analyst account to access the live risk API.</p><form id="login-form"><label>Email<input name="email" type="email" value="analyst@northstar.local" required></label><label>Password<input name="password" type="password" value="DemoPass123!" minlength="8" required></label><p id="login-error" role="alert"></p><button class="primary" type="submit">Sign in</button></form></dialog>
+  <dialog id="case"><button class="close" aria-label="Close">×</button><p class="eyebrow">Case review</p><div id="case-content"></div><aside><b>Why this was flagged</b><p>The decision engine combined behavioral, device, location, and transaction signals. The score is explainable and every analyst action is recorded.</p></aside><label class="decision-note">Analyst note<textarea id="decision-note" rows="3" placeholder="Explain the evidence behind your decision" required></textarea></label><form><button value="safe">Mark as safe</button><button class="danger" value="blocked">Block & escalate</button></form></dialog>
   <div id="toast" class="toast" role="status"></div>
 </body>
 </html>
