@@ -1,0 +1,24 @@
+# ChangeGuard reads this file from the pull request's base commit so a change
+# cannot silently remove its own checks.
+python_version = "3.12"
+install_command = "python -m pip install -r backend/requirements-dev.txt"
+
+[[checks]]
+name = "Ruff backend lint"
+command = "ruff check backend"
+directory = "."
+
+[[checks]]
+name = "Backend tests"
+command = "python -m pytest backend/tests -q"
+directory = "."
+
+[[checks]]
+name = "Python compile"
+command = "python -m compileall -q backend"
+directory = "."
+
+[[checks]]
+name = "Container image build"
+command = "docker build -t northstar:changeguard ."
+directory = "."
