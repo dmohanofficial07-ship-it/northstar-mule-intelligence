@@ -1,3 +1,5 @@
+"""Rules for classifying transaction risk during screening."""
+
 from dataclasses import asdict, dataclass
 
 from ..schemas import ScreenTransactionRequest
