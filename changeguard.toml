@@ -10,7 +10,7 @@ directory = "."
 
 [[checks]]
 name = "Backend tests"
-command = "pytest backend/tests -q"
+command = "python -m pytest backend/tests -q"
 directory = "."
 
 [[checks]]
