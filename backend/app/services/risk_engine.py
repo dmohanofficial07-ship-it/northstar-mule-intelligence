@@ -47,5 +47,5 @@ def evaluate_transaction(payload: ScreenTransactionRequest) -> tuple[int, str, l
     if payload.amount >= 500_000:
         signals.append(RiskSignal("HIGH_VALUE", "High-value transfer", 8, "Amount exceeds the enhanced-monitoring threshold"))
 
-    score = sum(signal.points for signal in signals)
+    score = min(sum(signal.points for signal in signals), 100)
     return score, classify(score), [asdict(signal) for signal in signals]
