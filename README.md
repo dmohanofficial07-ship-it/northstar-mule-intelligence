@@ -179,3 +179,8 @@ The committed credentials and secrets are for local demonstration only. Replace 
 ## License
 
 MIT
+
+
+## Pull-request rehearsal
+
+This repository includes a DiffHarbor workflow that compares configured checks for a pull request against its base revision and publishes the run evidence to DiffHarbor. DiffHarbor reports evidence; it does not merge or deploy changes.
